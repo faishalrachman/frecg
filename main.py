@@ -19,7 +19,8 @@ for root, dirs, files in os.walk("data_pasien/splitted/"):
             if (len(r_peaks) > 5):
                 feature, predicted_beats, rr, hr, start_stop = classify_peaks(r_peaks)
                 summary.append(create_summary_minute(predicted_beats,rr,hr))
+            else:
+                summary.append([0, 0, 0, 0, 0, 0, 0, 0])
+                            
         print(file, "done")
         save_summary_tocsv(summary,'result/'+file)
-
-        
